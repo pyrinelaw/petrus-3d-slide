@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>petrus_3d_slide 3D滑动插件</title>
+
+    <link rel="stylesheet" href="src/css/peturs-3d-slide.css" />
+
+    <style type="text/css">
+
+        body{ padding: 30px 0; margin: 0px; }
+
+        .demo{ margin: 0px auto; overflow: hidden; }
+
+        .demo-1{ width: 320px; height: 480px; }
+        .demo-1 div{ position: relative; width: 100%; height: 100%; font-size: 28px; color: #FFF; }
+        .demo-1 div *{ position: absolute; }
+        .demo-1 .l1 {background: #FF4E88; }
+        .demo-1 .l2 {background: #00B1F1; }
+        .demo-1 .l3 {background: #4C9ED9; }
+        .demo-1 .l4 {background: #CC3674; }
+        .demo-1 .l5 {background: #26B083; }
+        .demo-1 .l6 {background: #FDDE32; }
+        .demo-1 div span{ padding-top: 30px; position: inherit; text-align: center; display: block; width: 100%; }
+
+        .circle-img{ height: 180px; width: 180px; border-radius: 90px; }
+        .circle-img-2{ height: 100px; height: 100px;  border-radius: 50px; }
+
+
+        img{ transition: all 0.4s ease-in-out 0.05s; }
+
+        .img-0{ opacity: 0.1; }
+        .img-1{ left: 100px; top: 200px; width: 120px; height: 120px; border-radius: 50%; }
+        .img-0, .img-3{ left: 70px; top: 170px; }
+        .img-2{ opacity: 0; top: 20px; left: 70px; }
+        .img-3{ opacity: 0.5; }
+        .img-4-0, .img-4-1, .img-4-2{ top: 10px; width: 130px; height: 130px; opacity: 0; border-radius: 50%; }
+        .img-4-0{ left: 15px; transition: all 0.4s ease-in-out 0.05s;}
+        .img-4-1{ left: 95px; transition: all 0.4s ease-in-out 0.15s;}
+        .img-4-2{ left: 175px; transition: all 0.4s ease-in-out 0.25s;}
+        .img-5-0, .img-5-1, .img-5-2{ width: 140px; height: 140px; opacity: 0; border-radius: 50%; }
+        .img-5-0{ left: 400px; top: 85px; transition: all 0.4s ease-in-out 0.05s;}
+        .img-5-1{ left: -20px; top: 190px; transition: all 0.4s ease-in-out 0.10s;}
+        .img-5-2{ left: 400px; top: 295px; transition: all 0.4s ease-in-out 0.15s;}
+        .img-0-show{ opacity: 1; }
+        .img-1-show{ left: 70px; top: 170px; width: 180px; height: 180px; border-radius: 50%; }
+        .img-2-show{ opacity: 1; top: 170px; }
+        .img-3-show{ opacity: 1; transform: rotate(360deg); }
+        .img-4-0-show, .img-4-1-show, .img-4-2-show{opacity: 1; top: 195px;}
+        .img-5-0-show, .img-5-1-show, .img-5-2-show{opacity: 1; left: 90px;}
+
+        .control{ margin: 0px auto; width: 320px; position: relative; }
+        .control .wrap{ top: -45px; left: 95px; width: 130px; height: 40px; position: absolute; border-radius: 2px; background: none repeat scroll 0% 0% rgba(255, 255, 255, 0.75); text-align: center; }
+        .control .wrap div{ display: inline; margin: 0px 5px; }
+        .control .wrap img{ height: 40px; width: 40px; }
+        .control .wrap img:hover{ transition: all 0.1s ease-in-out; transform:scale(1.1); }
+
+
+        .demo-2, .demo-3{ margin: 50px auto; font-size: 60px; color: #FFF; text-align: center;}
+        .demo-2, .demo-2 div, .demo-3, .demo-3 div{ width: 480px; height: 300px; line-height: 300px; }
+        .demo-2 div, .demo-3 div{ color: #FFF; }
+        .demo-2 .l1, .demo-3 .l1{ background: rgba(255, 0, 0, 0.6); }
+        .demo-2 .l2, .demo-3 .l2{ background: rgba(0, 255, 0, 0.6); }
+        .demo-2 .l3, .demo-3 .l3{ background: rgba(0, 0, 255, 0.6); }
+        .demo-2 .l4, .demo-3 .l4{ background: rgba(128, 0, 0, 0.6); }
+        .demo-2 .l5, .demo-3 .l5{ background: rgba(0, 128, 0, 0.6); }
+        .demo-2 .l6, .demo-3 .l6{ background: rgba(0, 0, 128, 0.6); }
+
+        .bt-info{ margin: 60px auto; text-align: center; width: 480px; border: 1px solid #CCCCCC; line-height: 50px; font-weight: bold; cursor: pointer; display: block; text-decoration: none; color: #666; font-size: 20px; }
+        .bt-info:hover{ border-width: 2px; }
+
+    </style>
+</head>
+<body>
+
+<div class="demo demo-1">
+    <div class="l1">
+        <span>One</span>
+        <img class="circle-img img-0" src="src/images/mm-4.jpg" />
+    </div>
+    <div class="l2">
+        <span>Two</span>
+        <img class="circle-img img-1" src="src/images/mm-10.jpg" />
+    </div>
+    <div class="l3">
+        <span>Three</span>
+        <img class="circle-img img-2" src="src/images/mm-8.jpg" />
+    </div>
+    <div class="l4">
+        <span>Four</span>
+        <img class="circle-img img-3" src="src/images/mm-6.jpg" />
+    </div>
+    <div class="l5">
+        <span>Five</span>
+        <img class="circle-img-2 img-4-0" src="src/images/mm-1.jpg" />
+        <img class="circle-img-2 img-4-1" src="src/images/mm-2.jpg" />
+        <img class="circle-img-2 img-4-2" src="src/images/mm-5.jpg" />
+    </div>
+    <div class="l6">
+        <span>Six</span>
+        <img class="circle-img-2 img-5-0" src="src/images/mm-11.png" />
+        <img class="circle-img-2 img-5-1" src="src/images/mm-12.png" />
+        <img class="circle-img-2 img-5-2" src="src/images/mm-13.png" />
+    </div>
+</div>
+<div class="control">
+    <div class="wrap">
+        <div class="prev"><img src="src/images/up.png" /></div>
+        <div class="next"><img src="src/images/down.png" /></div>
+    </div>
+</div>
+
+
+
+<div class="demo-2">
+    <div class="l1">第一屏X</div>
+    <div class="l2">第二屏</div>
+    <div class="l3">第三屏</div>
+    <div class="l4">第四屏</div>
+    <div class="l5">第五屏</div>
+    <div class="l6">第六屏</div>
+</div>
+
+<div class="demo-3">
+    <div class="l1">第一屏Y</div>
+    <div class="l2">第二屏</div>
+    <div class="l3">第三屏</div>
+    <div class="l4">第四屏</div>
+    <div class="l5">第五屏</div>
+    <div class="l6">第六屏</div>
+</div>
+
+<a href="full-screen-demo.html" target="_blank" class="bt-info">全屏查看</a>
+
+<a href="https://github.com/pyrinelaw/petrus_3d_slide" target="_blank" class="bt-info">下载地址</a>
+
+<script type="text/javascript" src="src/lib/zepto-1.1.6.js"></script>
+
+<script type="text/javascript" src="src/lib/touche.js"></script>
+
+<script type="text/javascript" src="src/js/petrus-3d-slide-0.2.0.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    var show = function(idx, ele){
+        var $ele = $(ele),
+            imgs = $ele.children('img');
+
+        if(imgs.length == 1) {
+            $(imgs[0]).addClass('img-'+idx+'-show');
+        } else {
+            imgs.each(function(i, img){
+                $(imgs[i]).addClass('img-'+idx+'-'+i+'-show');
+            });
+        }
+    };
+
+    var hide = function(idx, ele){
+        var $ele = $(ele),
+            imgs = $ele.children('img');
+
+        if(imgs.length == 1) {
+            $(imgs[0]).removeClass('img-'+idx+'-show');
+        } else {
+            imgs.each(function(i, img){
+                $(imgs[i]).removeClass('img-'+idx+'-'+i+'-show');
+            });
+        }
+    }
+
+    var init = function(){
+        $('.img-0').addClass('img-0-show');
+    }
+
+    var $slide = $('.demo-1').petrus_3d_slide({
+        callbacks: {
+            show: show,
+            hide: hide,
+            init: init
+        }
+    });
+
+    $('.prev').click(function(event) {
+        $slide.prev();
+    });
+
+    $('.next').click(function(event) {
+        $slide.next();
+    });
+
+    $.petrus_3d_slide({
+        $el: $('.demo-2'),
+        orientation: 'x'
+    });
+
+    $('.demo-3').petrus_3d_slide({
+        $el: $('.demo-3')
+    });
+
+});
+
+</script>
+</body>
+</html>

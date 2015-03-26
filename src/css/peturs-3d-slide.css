@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+/**
+ * @authors Petrus.Law (petrus.law@outlook.com)
+ * @date    2014-09-03 11:54:10
+ * @desc    petrus-3d-slide样式
+ * @github  https://www.github.com/pyrinelaw
+ */
+
+.peturs-3d-slide-hide{ display: none; }
+
+.peturs-3d-slide-container{ position: relative; overflow: hidden; }
+
+.peturs-3d-slide-wrap{ width: 100%; height: 100%; overflow: hidden; }
+
+.peturs-3d-slide-wrap section{ width: 100%; height: 100%; color: black; font-weight: bold; position: absolute; left: 0px; top: 0px; overflow: hidden; }
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-y-0{
+    transform-origin: 50% 100% 0px;
+    transform: translate(0%, -100%) rotateX(90deg);
+}
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-y-1{
+    /*transform-origin: 50% 0% 0px;*/
+    transform: translate(0%, 0%) rotateX(0deg);
+}
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-y-2{
+    transform-origin: 50% 0% 0px;
+    transform: translate(0%, 100%) rotateX(-90deg);
+}
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-x-0{
+    transform-origin: 100% 50% 0px;
+    transform: translate(-100%, 0%) rotateY(-90deg);
+}
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-x-1{
+    /*transform-origin: 50% 0% 0px;*/
+    transform: translate(0%, 0%) rotateY(0deg);
+}
+
+.peturs-3d-slide-wrap .peturs-3d-slide-section-x-2{
+    transform-origin: 0% 50% 0px;
+    transform: translate(100%, 0%) rotateY(90deg);
+}
+

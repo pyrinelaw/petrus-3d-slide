@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>旋转的正方体</title>
+
+    <link rel="stylesheet" href="src/css/peturs-3d-slide.css" />
+
+    <style type="text/css">
+
+        html, body{ padding: 0; margin: 0px; height: 100%; }
+
+        .demo{ margin: 0px auto; overflow: hidden; }
+
+        .demo{ width: 100%; height: 100%; }
+        .demo div{ width: 100%; height: 100%; color: #FFF; line-height: 200px; text-align: center; font-size: 60px; }
+        .demo .l1{ background: rgba(255, 0, 0, 0.6); }
+        .demo .l2{ background: rgba(0, 255, 0, 0.6); }
+        .demo .l3{ background: rgba(0, 0, 255, 0.6); }
+        .demo .l4{ background: rgba(128, 0, 0, 0.6); }
+        .demo .l5{ background: rgba(0, 128, 0, 0.6); }
+        .demo .l6{ background: rgba(0, 0, 128, 0.6); }
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="demo">
+    <div class="l1">第一屏</div>
+    <div class="l2">第二屏</div>
+    <div class="l3">第三屏</div>
+    <div class="l4">第四屏</div>
+    <div class="l5">第五屏</div>
+    <div class="l6">第六屏</div>
+</div>
+
+<script type="text/javascript" src="src/lib/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript" src="src/lib/touche.js"></script>
+
+<script type="text/javascript" src="src/js/petrus-3d-slide-0.1.0.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    $.petrus_3d_slide({
+        $el: $('.demo'),
+    });
+
+});
+
+</script>
+</body>
+</html>
