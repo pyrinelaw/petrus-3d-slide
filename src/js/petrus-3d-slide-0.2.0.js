@@ -76,8 +76,9 @@
 		initialize: function() {
 			var options = this.options,
 				$el = options.$el,
-				orientation = options.orientation,
-				perspective = options.perspective || 3;	// 视距: 默认3倍宽或高
+				orientation = options.orientation;
+
+			options.perspective = options.perspective || 3;	// 视距: 默认3倍宽或高
 
 			// 保存子元素，供后续使用
 			options.$children = [];
@@ -89,8 +90,6 @@
 			$el.addClass('peturs-3d-slide-container');
 
 			var $wrap = $("<div class='peturs-3d-slide-wrap'></div>");
-
-			$wrap.css('perspective', orientation == 'y' ? ($el.height() * perspective) :  ($el.width() * perspective));
 
 			options.$children = $children;
 
@@ -143,11 +142,18 @@
 			options.startPos = pos;
 
 			// 触摸开始时附加需要操作子元素
-			var $sections = options.$sections,
+			var $el = options.$el,
+				$wrap = options.$wrap,
+				$sections = options.$sections,
+				perspective = options.perspective,
 				idx = options.idx,
 				$children = options.$children,
 				prevChild = this.getPrevChild(),
 				nextChild = this.getNextChild();
+
+			// 每次触摸开始设置视距，防止容器大小变化导致视距出现偏差
+			var perspective = orientation == 'y' ? ($el.height() * perspective) :  ($el.width() * perspective);
+			$wrap.css('perspective', perspective);
 
 			// 当前需要操作元素以及相邻元素移除hide样式，其余元素反向操作
 			$children.each(function(i, ele){
@@ -181,6 +187,7 @@
 			var options = this.options;
 
 			if(!options.allow) return;		// 当前不允许触摸
+			if(!options.valid) return;		// 触摸未生效
 
 			var orientation = options.orientation;
 				pos = NaN;
@@ -623,7 +630,11 @@
 		}
 	}
 
+	var custom = 1;
+
 	$.petrus_3d_slide = function(settings){
+		settings.custom = custom;
+		custom++;
 		return new petrus_3d_slide(settings);
 	}
 
