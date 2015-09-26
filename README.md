@@ -29,8 +29,6 @@
     <script type="text/javascript" src="src/lib/touche.js"></script>
 ```
 
-需要`zepto或jQuery、touche`库支持
-关于touche: https://github.com/davidcalhoun/touche
 当然你也可以使用jQuery
 
 ```javascript
