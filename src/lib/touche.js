@@ -7,7 +7,7 @@
   var isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/);
   
   if(isTouchDevice) {
-      // 'looks like touch events are already present, so return early';
+      console.warn('looks like touch events are already present, so return early');
       return;
   }
   
