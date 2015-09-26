@@ -1,10 +1,16 @@
 // Touché: bringing touch events to non-touch browsers https://github.com/davidcalhoun/touche
 (function(){  // shouldn't need to wait DOM readiness (famous last words...)
-  if('ontouchstart' in window) {
-    // looks like touch events are already present, so return early
-    return;
+  
+  /**
+   * 是否触摸设备
+   */
+  var isTouchDevice = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|playbook|silk|BlackBerry|BB10|Windows Phone|Tizen|Bada|webOS|IEMobile|Opera Mini)/);
+  
+  if(isTouchDevice) {
+      console.warn('looks like touch events are already present, so return early');
+      return;
   }
-
+  
   var isMouseDown = false, // so we don't fire touchmove when the mouse is up
       originator,
       fireTouch,
@@ -74,6 +80,7 @@
     isMouseDown = false;
     fireTouch('touchend', e);
   }
+
   document.addEventListener('mousedown', mousedown, false);
   document.addEventListener('mousemove', mousemove, false);
   document.addEventListener('mouseup', mouseup, false);

@@ -111,9 +111,8 @@
 </div>
 
 
-
 <div class="demo-2">
-    <div class="l1">第一屏X</div>
+    <div class="l1">左右拖动</div>
     <div class="l2">第二屏</div>
     <div class="l3">第三屏</div>
     <div class="l4">第四屏</div>
@@ -122,7 +121,7 @@
 </div>
 
 <div class="demo-3">
-    <div class="l1">第一屏Y</div>
+    <div class="l1">上下拖动</div>
     <div class="l2">第二屏</div>
     <div class="l3">第三屏</div>
     <div class="l4">第四屏</div>
@@ -135,19 +134,17 @@
 <a href="https://github.com/pyrinelaw/petrus_3d_slide" target="_blank" class="bt-info">下载地址</a>
 
 <script type="text/javascript" src="src/lib/zepto-1.1.6.js"></script>
-
 <script type="text/javascript" src="src/lib/touche.js"></script>
-
-<script type="text/javascript" src="src/js/petrus-3d-slide-0.2.0.js"></script>
+<script type="text/javascript" src="src/js/petrus-3d-slide-0.3.0.js"></script>
 
 <script type="text/javascript">
 
 $(document).ready(function() {
-
+    
     var show = function(idx, ele){
         var $ele = $(ele),
             imgs = $ele.children('img');
-
+            
         if(imgs.length == 1) {
             $(imgs[0]).addClass('img-'+idx+'-show');
         } else {
@@ -160,7 +157,7 @@ $(document).ready(function() {
     var hide = function(idx, ele){
         var $ele = $(ele),
             imgs = $ele.children('img');
-
+    
         if(imgs.length == 1) {
             $(imgs[0]).removeClass('img-'+idx+'-show');
         } else {
@@ -169,7 +166,7 @@ $(document).ready(function() {
             });
         }
     }
-
+    
     var init = function(){
         $('.img-0').addClass('img-0-show');
     }
