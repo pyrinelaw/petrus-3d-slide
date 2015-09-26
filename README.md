@@ -23,7 +23,8 @@
     <script type="text/javascript" src="src/js/petrus-3d-slide-0.1.0.js"></script>
 ```
 
-如需兼容非触摸设备添加touche插件支持,(使用本库中已修正过的touche.js)
+如需兼容非触摸设备添加touche插件支持 [关于touche](https://github.com/pyrinelaw/touche)
+
 
 ```javascript
     <script type="text/javascript" src="src/lib/touche.js"></script>
